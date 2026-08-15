@@ -1,0 +1,8 @@
+a=int(input("Enter no. of employe: "))
+d={}
+for i in range (a):
+     name=input("Enter name of employe: ")
+     salary=int(input("Enter salary: "))
+     house=input("Enter house: ")
+d[name]=[salary,house]
+print(d)

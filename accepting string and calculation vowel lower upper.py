@@ -1,0 +1,21 @@
+def upperstr():
+     str.split()
+     for i in str:
+          if i.isupper():
+               c=c+1
+               print("No.of upper",c)
+def lowerstr():
+     str.split
+     for i in str:
+          if i.islower():
+               c=c+1
+               print("lower=",c)
+def vowel():
+     str.split()
+     for i in str:
+          if i=='aeiou':
+               c=c+1
+          print("vowel=",c)
+          else:
+               d=d+1
+               print("consonant=",d)

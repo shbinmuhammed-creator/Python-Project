@@ -1,0 +1,7 @@
+a=int(input("Enter 'A' Value: "))
+r=int(input("Enter 'R' Value: "))
+n=int(input("Enter 'N' Value: "))
+s=0
+for i in range(n+1):
+    s=s+(a*r**n)
+print(s)

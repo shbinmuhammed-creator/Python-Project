@@ -1,0 +1,13 @@
+def creatlist():
+     L=[]
+     n=int(input("Enter no. of elements"))
+     for i in range(n):
+          ele=int(input("Enter elements:"))
+          L.append(ele)
+          print(L)
+     print("Square of elements:")
+     for i in L:
+          print(i,":",i**2)
+creatlist()
+     
+     

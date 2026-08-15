@@ -1,0 +1,29 @@
+A=input("Enter sentence: ")
+c=count=lowercase=uppercase=digits=space=vowels=consonants=alphabet=special=0
+b=A.split()
+for i in A:
+     if i.isupper():
+          upper+=1
+     elif i.islower():
+          lowercase+=1
+     elif i.isdigit():
+          digits+=1
+     elif i.isspace():
+          space+=1
+for i in A:
+     if i =="aeiou" or i=="AEIOU":
+          vowels+=1
+else:
+     consonants+=1
+for i in A:
+     if i.isalpha():
+        alphabet+=1
+else:
+     print("Special characters")
+print("Upper= ",uppercase)
+print("lower=",lowercase)
+print("Digits=",digits)
+print("space=",space)
+print("vowels=",vowels)
+print("consonants=",consonants)
+print("alphabet=",alphabet)

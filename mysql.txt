@@ -1,0 +1,240 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 5.1.50-community MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from vehicle;
+ERROR 1046 (3D000): No database selected
+mysql> use database vehicle;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use vehicle;
+Database changed
+mysql> select * from vehicle;
++------+-----------+-------+
+| code | vtype     | perkm |
++------+-----------+-------+
+|  101 | volvo bus |   100 |
+|  102 | ac deluxe |   150 |
+|  103 | ordinary  |    90 |
+|  104 | car       |    20 |
+|  105 | suv       |    40 |
++------+-----------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from travel;
++------+------------+------------+------+------+------+
+| NO   | name       | tdate      | km   | code | NOP  |
++------+------------+------------+------+------+------+
+|  101 | JANISH KIN | 2015-11-13 |  200 |  101 |   32 |
+|  101 | JANISH KIN | 2015-11-13 |  200 |  101 |   32 |
+|  102 | VATKIA     | 2016-04-21 |  100 |  102 |   45 |
+|  105 | TARUN      | 2016-03-23 |  350 |  102 |   42 |
+|  102 | JHON       | 2016-02-13 |   90 |  102 |   40 |
+|  107 | AHMED      | 2015-01-28 |   75 |  104 |    2 |
+|  104 | AMIRA      | 2016-05-28 |   80 |  105 |    4 |
+|  106 | ABDULLAH   | 2016-02-06 |  200 |  101 |   25 |
++------+------------+------------+------+------+------+
+8 rows in set (0.00 sec)
+
+mysql> select name, vehicle.perkm*travel.km as amount from vehicle, travel where vehicle.code=travel.code=104
+    -> select name, vehicle.perkm*travel.km as amount from vehicle, travel where vehicle.code=travel.code=104;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select name, vehicle.perkm*travel.km as amount from vehicle, travel where vehicl' at line 2
+mysql> select name, vehicle.perkm*travel.km as amount from vehicle, travel where vehicle.code=travel.code=104;
+Empty set (0.00 sec)
+
+mysql> select name, vehicle.perkm*travel.km as amount from vehicle, travel where vehicle.code=travel.code and travel.code=104;
++-------+--------+
+| name  | amount |
++-------+--------+
+| AHMED |   1500 |
++-------+--------+
+1 row in set (0.00 sec)
+
+mysql> create table customer(custid int, name varchar(50), city varchar(25), age int);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into values(1,"anu","kochi",20),(2,"rahul","calicut",25),(3,"meena",null,22),(4,"arjun","kochi",28);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values(1,"anu","kochi",20),(2,"rahul","calicut",25),(3,"meena",null,22),(4,"arju' at line 1
+mysql> insert into customer values(1,"anu","kochi",20),(2,"rahul","calicut",25),(3,"meena",null,22),(4,"arjun","kochi",28);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> create table order (orderid int, cust int, product varchar(50), amount int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order (orderid int, cust int, product varchar(50), amount int)' at line 1
+mysql> create table orders(orderid int, custid int, product varchar(50), amount int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into oreder(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000)' at line 1
+mysql> insert into oredrS(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000)' at line 1
+mysql> insert into ordErS(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000)' at line 1
+mysql> insert into orders(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000)' at line 1
+mysql> insert into orders(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000)' at line 1
+mysql> insert into orders(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000)' at line 1
+mysql> insert into orders values(101,1,"BOOK",500),(102,2,"PEN",100),(103,3,"LAPTOP",50000),(104,1,"BAG",15000);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from orders where name like'A%';
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+mysql> select * from customers where name like'A%';
+ERROR 1146 (42S02): Table 'vehicle.customers' doesn't exist
+mysql> select * from customer where name like'A%';
++--------+-------+-------+------+
+| custid | name  | city  | age  |
++--------+-------+-------+------+
+|      1 | anu   | kochi |   20 |
+|      4 | arjun | kochi |   28 |
++--------+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from customer where city is null;
++--------+-------+------+------+
+| custid | name  | city | age  |
++--------+-------+------+------+
+|      3 | meena | NULL |   22 |
++--------+-------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * frp, customer where city="kochi" and age>21;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'frp, customer where city="kochi" and age>21' at line 1
+mysql> select * from customer where city="kochi" and age>21;
++--------+-------+-------+------+
+| custid | name  | city  | age  |
++--------+-------+-------+------+
+|      4 | arjun | kochi |   28 |
++--------+-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from custmoer where age between 21 and 26;
+ERROR 1146 (42S02): Table 'vehicle.custmoer' doesn't exist
+mysql> select * from customer where age between 21 and 26;
++--------+-------+---------+------+
+| custid | name  | city    | age  |
++--------+-------+---------+------+
+|      2 | rahul | calicut |   25 |
+|      3 | meena | NULL    |   22 |
++--------+-------+---------+------+
+2 rows in set (0.00 sec)
+
+mysql> select name,product from customer,order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> select name,product from customer,orders;
++-------+---------+
+| name  | product |
++-------+---------+
+| anu   | BOOK    |
+| rahul | BOOK    |
+| meena | BOOK    |
+| arjun | BOOK    |
+| anu   | PEN     |
+| rahul | PEN     |
+| meena | PEN     |
+| arjun | PEN     |
+| anu   | LAPTOP  |
+| rahul | LAPTOP  |
+| meena | LAPTOP  |
+| arjun | LAPTOP  |
+| anu   | BAG     |
+| rahul | BAG     |
+| meena | BAG     |
+| arjun | BAG     |
++-------+---------+
+16 rows in set (0.00 sec)
+
+mysql> select * from customer order by age desc;
++--------+-------+---------+------+
+| custid | name  | city    | age  |
++--------+-------+---------+------+
+|      4 | arjun | kochi   |   28 |
+|      2 | rahul | calicut |   25 |
+|      3 | meena | NULL    |   22 |
+|      1 | anu   | kochi   |   20 |
++--------+-------+---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select sum(product) from customer;
+ERROR 1054 (42S22): Unknown column 'product' in 'field list'
+mysql> select sum(product) from orders;
++--------------+
+| sum(product) |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select name,order.custid,sum(product) from customer,orders;
+ERROR 1054 (42S22): Unknown column 'order.custid' in 'field list'
+mysql> select name,orders.custid,sum(product) from customer,orders;
++------+--------+--------------+
+| name | custid | sum(product) |
++------+--------+--------------+
+| anu  |      1 |            0 |
++------+--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select name,orders.custid,sum(product) from customer,orders where orders.custid=customer.custid;
++------+--------+--------------+
+| name | custid | sum(product) |
++------+--------+--------------+
+| anu  |      1 |            0 |
++------+--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select name,ocustid,from customer,orders where orders.custid=customer.custid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer,orders where orders.custid=customer.custid' at line 1
+mysql> select name,custid,from customer,orders where orders.custid=customer.custid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer,orders where orders.custid=customer.custid' at line 1
+mysql> select custid,sum(amount) from orders group by custid;
++--------+-------------+
+| custid | sum(amount) |
++--------+-------------+
+|      1 |       15500 |
+|      2 |         100 |
+|      3 |       50000 |
++--------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select name,sum(amount) from orders;
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select name,sum(amount) from orders order by custid;
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select custid,sum(amount) from orders order by custid;
++--------+-------------+
+| custid | sum(amount) |
++--------+-------------+
+|      1 |       65600 |
++--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select custid,sum(amount) from orders;
++--------+-------------+
+| custid | sum(amount) |
++--------+-------------+
+|      1 |       65600 |
++--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select custid,amount from orders;
++--------+--------+
+| custid | amount |
++--------+--------+
+|      1 |    500 |
+|      2 |    100 |
+|      3 |  50000 |
+|      1 |  15000 |
++--------+--------+
+4 rows in set (0.00 sec)
+
+mysql>

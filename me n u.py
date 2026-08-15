@@ -1,0 +1,18 @@
+1) DISPLAY TOTAL SALARY
+2)DISPLAY TOTAL ALLOWANCE
+3)SEARCH IN EMPLOYEE
+ch='Y'
+d={}
+for i in range (11):
+    N=input("Enter name: ")
+    S=int(input)"Enter salary: "))
+    A=int(input("Enter allowance: "))
+    D=int(input)"Enter dedication"))
+    d[N]=[S,A,D]
+while ch=='Y' or ch=='y':
+    print("1.Display total salary")
+    print("2.display allowance and deduction")
+    print("3.Search in employee")
+    B=int(input("Enter choice"))
+    if B==1:
+        for keu,value
