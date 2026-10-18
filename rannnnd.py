@@ -1,7 +1,0 @@
-import mysql.connector as mysql
-mydb=mysql.connect(host="localhost",user="root",password="admin",database="vehicle")
-mycursor=mydb.cursor()
-q=("select* from customer")
-mycursor.execute(q)
-rcd=mycursor.fetchall()
-print(rcd)
