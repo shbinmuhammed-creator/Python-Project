@@ -1,9 +1,0 @@
-A=int(input("Enter 1st score: "))
-B=int(input("Enter the 2nd number"))
-C=int(input("Enter 3rd score:"))
-Avg=A+B+C/3
-if(Avg>50):
-    print("pass")
-else:
- print("fail")
-    
