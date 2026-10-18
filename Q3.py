@@ -1,4 +1,0 @@
-A=int(input("Enter the Principal Amount: "))
-B=int(input("Enter the rate: "))
-Simple_Interest=A*B*5/100
-print("Simple Interest=",Simple_Interest)
