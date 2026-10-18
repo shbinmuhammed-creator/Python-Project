@@ -1,0 +1,10 @@
+A=int(input("Enter no. of values: "))
+L=[]
+for i in range(A):
+    B=int(input("Enter elements:"))
+    L.append(B)
+print(L)
+max(L)
+print("max",max(L))
+min(L)
+print("min",min(L))
