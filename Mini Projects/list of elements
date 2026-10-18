@@ -1,0 +1,10 @@
+A=int(input("Enter no. of values: "))
+B=int(input("Enter elements: "))
+L=[]
+for i in range(B):
+    ele=int(input("Enter element:"))
+    L.append(ele)
+c=int(input("Enter elements to be inserted"))
+d=int(input("Enter index value"))
+L.insert(d,c)
+print(L)
