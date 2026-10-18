@@ -1,0 +1,13 @@
+A=input("Enter Letter: ")
+if A=="a" or A=="A":
+    print("Vowels")
+elif A=="e" or A=="E":
+    print("Vowels")
+elif A=="i"or A=="I":
+    print("Vowels")
+elif A=="o"or A=="O":
+    print("Vowels")
+elif A=="u"or A=="U":
+    print("Vowels")
+else:
+    print("consonants")
