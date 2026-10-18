@@ -1,0 +1,15 @@
+T=()
+n=int(input("Enter no of elements: "))
+for i in range(n):
+    ele=int(input("Enter element: "))
+    T=T+(ele,)
+print(T)
+t1=()
+m=int(input("Enter no of ele: "))
+for i in range(m):
+    ele1=int(input("Enter element: "))
+    t1=t1+(ele1,)
+print(t1)
+T,t1=t1,T
+print("swapped T= ",t1)
+print("swapped t1= ",T)
